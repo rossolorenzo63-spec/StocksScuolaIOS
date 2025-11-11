@@ -88,7 +88,13 @@ struct SubjectView: View {
                             )
                             .foregroundStyle(lastValueColor)
                         }
-                        .chartYScale(domain: 1...10) // Y-axis from 1 to 10
+                        .chartYAxis {
+                            AxisMarks(values: Array(stride(from: 1, to: 11, by: 1))) {
+                                AxisGridLine()
+                                AxisTick()
+                                AxisValueLabel()
+                            }
+                        }
                         .chartXAxis {
                             // This ensures not all 20 labels try to show
                             AxisMarks(values: .automatic(desiredCount: 7))

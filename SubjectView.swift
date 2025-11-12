@@ -4,18 +4,14 @@ import Charts // This is Apple's native charting library
 struct SubjectView: View {
     // This is passed in from ContentView
     let subject: String
+    let grades: [Grade]
     
     // --- Constants ---
     let masterLabels = Array(1...20).map { "\($0)°" }
-    private var userDefaultsKey: String {
-        "grades_\(subject)" // Same key as your JS
-    }
 
     // --- State Variables (replaces JS globals) ---
     @State private var currentValues: [Double?] = Array(repeating: nil, count: 20)
-    @State private var gradeInput: String = ""
     @State private var resultText: String = ""
-    @State private var errorText: String = ""
 
     // --- Computed Properties (replaces JS getFilteredPoints()) ---
     private var chartData: (points: [GradePoint], percentage: Double) {
@@ -88,7 +84,10 @@ struct SubjectView: View {
                             )
                             .foregroundStyle(lastValueColor)
                         }
-                        .chartYScale(domain: 1...10) // Y-axis from 1 to 10
+                        .chartYScale(domain: 1...10)
+                        .chartYAxis {
+                            AxisMarks(position: .leading, values: Array(1...10))
+                        }
                         .chartXAxis {
                             // This ensures not all 20 labels try to show
                             AxisMarks(values: .automatic(desiredCount: 7))
@@ -100,43 +99,16 @@ struct SubjectView: View {
                     }
                 }
                 .padding(.horizontal)
-
-                // --- Input + Add Button ---
-                HStack(spacing: 12) {
-                    TextField("Voto (es. 6 o 7.5)", text: $gradeInput)
-                        .keyboardType(.decimalPad) // Shows number pad
-                        .textFieldStyle(.roundedBorder)
-                        .onChange(of: gradeInput) { _ in clearMessages() }
-                    
-                    Button("Aggiungi") {
-                        addLast()
-                    }
-                    .buttonStyle(PrimaryButton())
-                    .frame(maxWidth: 100) // Give button a fixed size
+                
+                Button("Voto per avere 6") {
+                    computeNeeded()
                 }
+                .buttonStyle(PrimaryButton())
                 .padding(.horizontal)
                 
-                // --- Action Buttons ---
-                HStack(spacing: 12) {
-                    Button("Rimuovi ultimo") {
-                        removeLast()
-                    }
-                    .buttonStyle(PrimaryButton())
-                    
-                    Button("Voto per avere 6") {
-                        computeNeeded()
-                    }
-                    .buttonStyle(PrimaryButton())
-                }
-                .padding(.horizontal)
-                
-                // --- Messages ---
                 Text(resultText)
                     .foregroundColor(.white)
                     .font(.headline)
-                Text(errorText)
-                    .foregroundColor(.red)
-                    .font(.callout)
                 
                 Spacer() // Pushes content to the top
             }
@@ -145,89 +117,21 @@ struct SubjectView: View {
         .navigationTitle(subject)
         .navigationBarTitleDisplayMode(.inline)
         .onAppear {
-            // This runs when the view loads (like DOMContentLoaded)
-            loadValues()
-            
-            // Replicates your logic to add a "7" if the list is empty
-            if currentValues.compactMap({ $0 }).isEmpty {
-                currentValues[0] = 7.0
-                saveValues()
-            }
-        }
-    }
-    
-    // --- All Logic Functions (translated from JS) ---
-    
-    func clearMessages() {
-        resultText = ""
-        errorText = ""
-    }
-    
-    // Replaces localStorage.getItem
-    func loadValues() {
-        if let data = UserDefaults.standard.data(forKey: userDefaultsKey) {
-            // We use JSONDecoder to read the data
-            if let decoded = try? JSONDecoder().decode([Double?].self, from: data) {
-                currentValues = decoded
-                return
-            }
-        }
-        // Fallback if nothing is saved
-        currentValues = Array(repeating: nil, count: 20)
-    }
-    
-    // Replaces localStorage.setItem
-    func saveValues() {
-        // We use JSONEncoder to save the data
-        if let encoded = try? JSONEncoder().encode(currentValues) {
-            UserDefaults.standard.set(encoded, forKey: userDefaultsKey)
-        }
-    }
-    
-    func addLast() {
-        clearMessages()
-        // Convert the input string to a Double
-        let cleanedInput = gradeInput.trimmingCharacters(in: .whitespaces)
-                                     .replacingOccurrences(of: ",", with: ".")
-        
-        guard let num = Double(cleanedInput) else {
-            errorText = "Valore non valido."
-            return
-        }
-        
-        let v = min(max(num, 1.0), 10.0) // Clamp value from 1-10
-        
-        // Find the last non-nil index
-        if let lastIndex = currentValues.lastIndex(where: { $0 != nil }) {
-            let next = lastIndex + 1
-            if next < currentValues.count {
-                currentValues[next] = v
-            } else {
-                errorText = "Array pieno — non è possibile aggiungere."
-                return
-            }
-        } else {
-            // No values yet, add at the start
-            currentValues[0] = v
-        }
-        
-        // Success
-        gradeInput = "" // Clear input
-        saveValues() // Save
-    }
-
-    func removeLast() {
-        clearMessages()
-        if let lastIndex = currentValues.lastIndex(where: { $0 != nil }) {
-            currentValues[lastIndex] = nil // Set to nil
-            saveValues() // Save
-        } else {
-            errorText = "Nessun voto da rimuovere."
+            populateGrades()
         }
     }
 
+    private func populateGrades() {
+        var newValues: [Double?] = Array(repeating: nil, count: 20)
+        for (index, grade) in grades.enumerated() {
+            if index < newValues.count {
+                newValues[index] = grade.value
+            }
+        }
+        self.currentValues = newValues
+    }
+    
     func computeNeeded() {
-        clearMessages()
         // .compactMap { $0 } filters out all the 'nil' values
         let numeric = currentValues.compactMap { $0 }
         let n = numeric.count
@@ -266,7 +170,7 @@ struct PrimaryButton: ButtonStyle {
 // This just provides the live preview in Xcode
 #Preview {
     NavigationStack {
-        SubjectView(subject: "Matematica")
+        SubjectView(subject: "Matematica", grades: [Grade(date: Date(), value: 7.0), Grade(date: Date(), value: 8.5), Grade(date: Date(), value: 6.5)])
     }
     .preferredColorScheme(.dark)
 }

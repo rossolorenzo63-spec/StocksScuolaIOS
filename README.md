@@ -36,6 +36,8 @@ Sideloadly:
 
 16. tieni il telefono acceso fino alla fine del download
 
+17. una volta finito il downlaod, sul Iphone, vai su impostazioni -> Generali -> VPN e gestione dispositivo -> #############@icloud.com e autorizza l'applicazione
+
 MacBook:
 -
 

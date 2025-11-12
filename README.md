@@ -13,6 +13,7 @@ oppure:
 3. Installare iCloud da questo link: https://updates.cdn-apple.com/2020/windows/001-39935-20200911-1A70AA56-F448-11EA-8CC0-99D41950005E/iCloudSetup.exe
 
 Itunes:
+
 5. Apri Itunes e accedi con il tuo Apple Account
    * se ti viene chiesto di installare iCloud, rifiuta
 6. Naviga su "Account -> Autorizzazioni -> Autorizza Questo Computer" e inserisci la tua password iCloud
@@ -22,10 +23,12 @@ Itunes:
 9. Dove ce scritto opzioni: Autorizza "sincronizza automaticamente quando il telefono è connesso" e "sincronizza con questo iPhone tramite Wi-Fi"
 
 iCloud:
+
 10. Dopo avere restartato il computer dopo il download, accedi con il tuo Apple ID
 11. accetta e applica cosa ti viene chiesto e chiedi l'app
 
 Sideloadly:
+
 12. Nei IDevices selezione il tuo iPhone
 13. inserisci il tuo apple id
 14 dove viene richiesto il file "ipa" inserisci il file "StocksScuola.ipa" scaricato da qua: https://github.com/rossolorenzo63-spec/StocksScuolaIOS/releases/tag/Scarica

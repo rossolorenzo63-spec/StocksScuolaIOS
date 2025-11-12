@@ -1,10 +1,13 @@
+ENGLISH
+-
+
 HOW TO INSTALL THE APP ON IOS:
 --
 You need a Windows or Apple computer!
 
 Windows:
-
 -
+
 Follow this tutorial for clarity: https://www.youtube.com/watch?v=vqTsavQc3lQ
 or:
 
@@ -56,6 +59,9 @@ MacBook:
 --------------------------------------------------------------------------------------------------------
 
 Stocks Scuola is not yet available for Android.
+
+ITALIANO:
+-
 
 COME INSTALLARE L'APP SU IOS:
 --

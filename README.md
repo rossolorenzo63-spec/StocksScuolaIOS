@@ -31,7 +31,7 @@ Sideloadly:
 
 12. Nei IDevices selezione il tuo iPhone
 13. inserisci il tuo apple id
-14  dove viene richiesto il file "ipa" inserisci il file "StocksScuola.ipa" scaricato da qua: https://github.com/rossolorenzo63-spec/StocksScuolaIOS/releases/tag/Scarica
+14. dove viene richiesto il file "ipa" inserisci il file "StocksScuola.ipa" scaricato da qua: https://github.com/rossolorenzo63-spec/StocksScuolaIOS/releases/tag/Scarica
 15. clicca su start, se ti viene chiesta la password del account apple id, inseriscila 
 
 16. tieni il telefono acceso fino alla fine del download
@@ -46,7 +46,7 @@ MacBook:
 3. apri sideloadly 
 4. Nei IDevices selezione il tuo iPhone
 5. inserisci il tuo apple id
-6  dove viene richiesto il file "ipa" inserisci il file "StocksScuola.ipa" scaricato da qua: https://github.com/rossolorenzo63-spec/StocksScuolaIOS/releases/tag/Scarica
+6. dove viene richiesto il file "ipa" inserisci il file "StocksScuola.ipa" scaricato da qua: https://github.com/rossolorenzo63-spec/StocksScuolaIOS/releases/tag/Scarica
 7. clicca su start, se ti viene chiesta la password del account apple id, inseriscila 
 
 8. tieni il telefono acceso fino alla fine del download

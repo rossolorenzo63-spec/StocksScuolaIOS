@@ -5,7 +5,7 @@ COME INSTALLARE L'APP SU IOS:
 Windows: 
 -
 
-Seguire questo tutorial per maggiore chiarezzo (in inglese): https://www.youtube.com/watch?v=vqTsavQc3lQ
+Seguire questo tutorial per maggiore chiarezza (in inglese): https://www.youtube.com/watch?v=vqTsavQc3lQ
 oppure:
 
 1. Scaricare Sideloadly per Windows 64bit da questo link: https://sideloadly.io

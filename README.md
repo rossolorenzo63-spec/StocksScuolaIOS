@@ -52,6 +52,7 @@ MacBook:
 7. clicca su start, se ti viene chiesta la password del account apple id, inseriscila 
 
 8. tieni il telefono acceso fino alla fine del download
+9. una volta finito il downlaod, sul Iphone, vai su impostazioni -> Generali -> VPN e gestione dispositivo -> #############@icloud.com e autorizza l'applicazione
 
 ---------------------------------------------------------------------------------------------------------
 

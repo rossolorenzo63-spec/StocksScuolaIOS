@@ -2,8 +2,12 @@ COME INSTALLARE L'APP SU IOS:
 --
 !!Serve un computer Windows o Apple!!
 
-Windows:
+Windows: 
 -
+
+Seguire questo tutorial per maggiore chiarezzo (in inglese): https://www.youtube.com/watch?v=vqTsavQc3lQ
+oppure:
+
 1. Scaricare Sideloadly per Windows 64bit da questo link: https://sideloadly.io
 2. Installare Itunes da questo link: https://www.apple.com/itunes/download/win64
 3. Installare iCloud da questo link: https://updates.cdn-apple.com/2020/windows/001-39935-20200911-1A70AA56-F448-11EA-8CC0-99D41950005E/iCloudSetup.exe

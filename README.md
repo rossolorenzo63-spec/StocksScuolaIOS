@@ -1,6 +1,6 @@
 COME INSTALLARE L'APP SU IOS:
 --
-!!Serve un computer Windows o Apple (consigliato)!!
+!!Serve un computer Windows o Apple!!
 
 Windows: 
 -

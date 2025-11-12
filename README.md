@@ -41,7 +41,7 @@ MacBook:
 
 1. Installa Sideloadly da qua cliccando su MacOS: https://sideloadly.io
 
-2. Conetti l'Iphone al computer e consenti l'accoppiamento sia sul computer sia sul telefono se ti viene chiesto
+2. Conetti l'Iphone al computer via cavo e consenti l'accoppiamento sia sul computer sia sul telefono se ti viene chiesto
 
 3. apri sideloadly 
 4. Nei IDevices selezione il tuo iPhone

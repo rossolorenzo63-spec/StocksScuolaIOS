@@ -44,6 +44,9 @@ Sideloadly:
 
 MacBook:
 -
+
+video tutorial (raccomended): https://www.youtube.com/watch?v=J1TK-rO09qE
+
 1. Install Sideloadly from here by clicking on MacOS: https://sideloadly.io
 
 2. Connect your iPhone to your computer via cable and allow pairing on both your computer and phone if prompted.
@@ -108,6 +111,8 @@ Sideloadly:
 
 MacBook:
 -
+
+video tutorial (consigliato): https://www.youtube.com/watch?v=J1TK-rO09qE
 
 1. Installa Sideloadly da qua cliccando su MacOS: https://sideloadly.io
 

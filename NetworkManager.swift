@@ -44,7 +44,13 @@ class NetworkManager {
     
     private func loadCookies() {
         guard let cookieData = UserDefaults.standard.array(forKey: "savedCookies") as? [[HTTPCookiePropertyKey: Any]] else { return }
-        cookies = cookieData.compactMap { HTTPCookie(properties: $0) }
+        cookies = cookieData.compactMap {
+            guard let cookie = HTTPCookie(properties: $0) else { return nil }
+            if let expiresDate = cookie.expiresDate, expiresDate < Date() {
+                return nil
+            }
+            return cookie
+        }
     }
 
     private let gradesURL = URL(string: "https://web.spaggiari.eu/cvv/app/default/genitori_note.php?ordine=materia&filtro=tutto")!

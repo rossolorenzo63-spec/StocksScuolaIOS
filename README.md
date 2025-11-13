@@ -1,5 +1,6 @@
 ENGLISH
 -
+Ensure you have at leaste iOS or iPadOS 26.0
 
 HOW TO INSTALL THE APP ON IOS:
 --
@@ -62,6 +63,8 @@ Stocks Scuola is not yet available for Android.
 
 ITALIANO:
 -
+
+Assicurati di avere almeno iOS o iPadOS 26.0
 
 COME INSTALLARE L'APP SU IOS:
 --

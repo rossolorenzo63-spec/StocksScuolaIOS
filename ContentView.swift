@@ -59,11 +59,12 @@ struct ContentView: View {
         .accentColor(.white)
         .onAppear(perform: onAppear)
         
-        Text("Applicazione creata esclusivamente per uno scopo informativo. Non siamo responsabili per nessun problema legale")
+        Text("Questa applicazione è stata creata esclusivamente per uno scopo istruttivo. Non siamo responsabili di nessun incoveniente legale")
+            
             .font(.system(size: 8))
             .font(.headline)
-            .multilineTextAlignment(.center)
             .foregroundColor(.gray)
+            .multilineTextAlignment(.center)
     }
     
     private func onAppear() {

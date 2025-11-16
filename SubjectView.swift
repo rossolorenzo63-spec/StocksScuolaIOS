@@ -5,6 +5,7 @@ struct SubjectView: View {
     // This is passed in from ContentView
     let subject: String
     let grades: [Grade]
+    let selectedLanguage: String
     
     // --- Constants ---
     let masterLabels = Array(1...20).map { "\($0)°" }
@@ -83,6 +84,9 @@ struct SubjectView: View {
                                 y: .value("Voto", point.value)
                             )
                             .foregroundStyle(lastValueColor)
+                            
+                            RuleMark(y: .value("Passing Grade", 6))
+                                .foregroundStyle(.red.opacity(0.5))
                         }
                         .chartYScale(domain: 1...10)
                         .chartYAxis {
@@ -100,7 +104,7 @@ struct SubjectView: View {
                 }
                 .padding(.horizontal)
                 
-                Button("Voto per avere 6") {
+                Button(selectedLanguage == "Italian" ? "Voto per avere 6" : "Grade to get 6") {
                     computeNeeded()
                 }
                 .buttonStyle(PrimaryButton())
@@ -170,7 +174,7 @@ struct PrimaryButton: ButtonStyle {
 // This just provides the live preview in Xcode
 #Preview {
     NavigationStack {
-        SubjectView(subject: "Matematica", grades: [Grade(date: Date(), value: 7.0), Grade(date: Date(), value: 8.5), Grade(date: Date(), value: 6.5)])
+        SubjectView(subject: "Matematica", grades: [Grade(date: Date(), value: 7.0), Grade(date: Date(), value: 8.5), Grade(date: Date(), value: 6.5)], selectedLanguage: "Italian")
     }
     .preferredColorScheme(.dark)
 }

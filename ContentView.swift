@@ -6,6 +6,7 @@ struct ContentView: View {
     @State private var isRefreshing = false
     @State private var showAlert = false
     @State private var alertMessage = ""
+    @State private var selectedLanguage = "Italian"
 
     var body: some View {
         NavigationStack {
@@ -20,7 +21,7 @@ struct ContentView: View {
             .navigationTitle("Stocks Scuola")
             .listStyle(.plain)
             .navigationDestination(for: String.self) { subjectName in
-                SubjectView(subject: subjectName, grades: subjects[subjectName] ?? [])
+                SubjectView(subject: subjectName, grades: subjects[subjectName] ?? [], selectedLanguage: selectedLanguage)
             }
             .toolbar {
                 ToolbarItemGroup(placement: .navigationBarLeading) {
@@ -31,6 +32,15 @@ struct ContentView: View {
                     }
                 }
                 ToolbarItemGroup(placement: .navigationBarTrailing) {
+                    Picker("Language", selection: $selectedLanguage) {
+                        Text("Italian").tag("Italian")
+                        Text("English").tag("English")
+                    }
+                    .pickerStyle(MenuPickerStyle())
+                    .onChange(of: selectedLanguage) {
+                        UserDefaults.standard.set(selectedLanguage, forKey: "selectedLanguage")
+                    }
+                    
                     Button(action: {
                         showingLogin.toggle()
                     }) {
@@ -59,7 +69,7 @@ struct ContentView: View {
         .accentColor(.white)
         .onAppear(perform: onAppear)
         
-        Text("Questa applicazione è stata creata esclusivamente per uno scopo istruttivo. Non siamo responsabili di nessun incoveniente legale")
+        Text(selectedLanguage == "Italian" ? "Questa applicazione è stata creata esclusivamente per uno scopo istruttivo. Non siamo responsabili di nessun incoveniente legale" : "This application was created exclusively for an instructive purpose. We are not responsible for any legal inconvenience")
             
             .font(.system(size: 8))
             .font(.headline)
@@ -68,6 +78,7 @@ struct ContentView: View {
     }
     
     private func onAppear() {
+        selectedLanguage = UserDefaults.standard.string(forKey: "selectedLanguage") ?? "Italian"
         if NetworkManager.shared.isLoggedIn {
             fetchSubjects()
         } else {

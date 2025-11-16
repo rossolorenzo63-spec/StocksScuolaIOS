@@ -7,4 +7,5 @@ struct GradePoint: Identifiable {
     var id = UUID()
     var label: String // e.g., "1°", "2°"
     var value: Double // e.g., 7.5
+
 }
